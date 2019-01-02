@@ -6,7 +6,7 @@ RUN dpkg -i /tmp/piaware-repository.deb
 RUN apt-get update
 
 # Install PiAware
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y dump1090-fa
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y piaware
 
 # Configure Pi-Aware
 RUN piaware-config allow-auto-updates yes && \
