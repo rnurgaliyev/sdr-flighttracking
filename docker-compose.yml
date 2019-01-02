@@ -14,3 +14,11 @@ services:
     depends_on:
       - dump1090-fa
     restart: unless-stopped
+  flightradar24:
+    image: imple/flightradar24
+    env_file: flightradar24.env
+    links:
+      - dump1090-fa:dump1090
+    depends_on:
+      - dump1090-fa
+    restart: unless-stopped
