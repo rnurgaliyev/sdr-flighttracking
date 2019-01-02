@@ -7,5 +7,6 @@ services:
     privileged: True
   flightaware:
     image: imple/flightaware
+    env_file: flightaware.env
     links:
       - dump1090-fa:dump1090

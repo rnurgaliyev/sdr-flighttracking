@@ -5,6 +5,17 @@ ADD http://flightaware.com/adsb/piaware/files/packages/pool/piaware/p/piaware-su
 RUN dpkg -i /tmp/piaware-repository.deb
 RUN apt-get update
 
+# Install PiAware
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y dump1090-fa
+
+# Configure Pi-Aware
+RUN piaware-config allow-auto-updates yes && \
+  piaware-config allow-manual-updates yes && \
+  piaware-config receiver-host dump1090 && \
+  piaware-config receiver-port 30005 && \
+  piaware-config receiver-type other && \
+  piaware-config allow-mlat true
+
 # Copy startup script
 COPY assets/flightaware.sh /usr/bin/flightaware.sh
 RUN chmod 775 /usr/bin/flightaware.sh
