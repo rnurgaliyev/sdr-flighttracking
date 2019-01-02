@@ -4,9 +4,6 @@ services:
     image: imple/dump1090-fa
     ports:
       - "8080:8080"
-      - "30003:30003"
-      - "30005:30005"
-      - "30104:30104"
     privileged: True
   flightaware:
     image: imple/flightaware
