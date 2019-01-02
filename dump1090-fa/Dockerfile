@@ -11,14 +11,17 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends cu
 # Install dump1090 from FlightAware and prerequisites
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y dump1090-fa
 
-# Create directory to store JSON
-RUN mkdir -p /var/run/dump1090-fa
+# Create directory to store JSON and runtime data
+RUN mkdir -p /run/dump1090-fa
 
 # Expose web dashboard
 EXPOSE 8080
 
 # Export ports for sharing data
+EXPOSE 30001
+EXPOSE 30002
 EXPOSE 30003
+EXPOSE 30004
 EXPOSE 30005
 EXPOSE 30104
 
