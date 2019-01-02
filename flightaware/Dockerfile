@@ -5,5 +5,9 @@ ADD http://flightaware.com/adsb/piaware/files/packages/pool/piaware/p/piaware-su
 RUN dpkg -i /tmp/piaware-repository.deb
 RUN apt-get update
 
+# Copy startup script
+COPY assets/flightaware.sh /usr/bin/flightaware.sh
+RUN chmod 775 /usr/bin/flightaware.sh
+
 # Container start point
-CMD ["/bin/bash"]
+CMD ["/usr/bin/flightaware.sh"]
