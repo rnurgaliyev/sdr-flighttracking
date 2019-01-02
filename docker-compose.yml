@@ -1,4 +1,4 @@
-version: "2.0"
+version: "3"
 services:
   dump1090-fa:
     image: imple/dump1090-fa
