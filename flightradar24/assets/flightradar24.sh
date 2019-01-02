@@ -1,7 +1,7 @@
 #!/bin/sh
 
-# dummy loop
+if [ ! -z "$FLIGHTRADAR24_KEY" ]; then
+  echo "fr24key=\"$FLIGHTRADAR24_KEY\"" >> /etc/fr24feed.ini
+fi
 
-while /bin/true; do
-  sleep 1000
-done
+fr24feed
