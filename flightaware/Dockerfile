@@ -5,10 +5,10 @@ ADD http://flightaware.com/adsb/piaware/files/packages/pool/piaware/p/piaware-su
 RUN dpkg -i /tmp/piaware-repository.deb
 RUN apt-get update
 
-# Install PiAware
+# Install piaware
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y piaware
 
-# Configure Pi-Aware
+# Configure piaware
 RUN piaware-config allow-auto-updates yes && \
   piaware-config allow-manual-updates yes && \
   piaware-config receiver-host dump1090 && \
