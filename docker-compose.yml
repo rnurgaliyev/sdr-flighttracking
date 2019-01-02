@@ -5,8 +5,12 @@ services:
     ports:
       - "8080:8080"
     privileged: True
+    restart: unless-stopped
   flightaware:
     image: imple/flightaware
     env_file: flightaware.env
     links:
       - dump1090-fa:dump1090
+    depends_on:
+      - dump1090-fa
+    restart: unless-stopped
