@@ -1,5 +1,5 @@
 # sdr-flighttracking
-This repository is a docker container automation for publicly available tools for RTL-SDR aircraft tracking, tested and made for Raspberry Pi 2/3. All you need is Raspberry Pi 2/3 with latest Raspbian OS and RTL-SDR dongle (RTL2832).
+This repository is a docker container automation for publicly available tools for RTL-SDR aircraft tracking, tested and made for Raspberry Pi 2/3. All you need is Raspberry Pi 2/3 with latest Raspbian OS and RTL-SDR dongle (RTL283x).
 I hope you know what you are doing, just check `docker-compose.yml` and enable/disable desired containers. Please keep in mind that receiving and/or sharing aircraft ADS-B signals may not be completely legal in some countries, always check local laws ;)
 
 By default, it will run three containers: `dump1090-fa` to receive ADS-B signals, `flightaware` to report to flightaware.com and `flightradar24` to report to flightradar24.com. If you just want to receive ADS-B and don't want to share received data, you can just run the `dump1090-fa` container.
