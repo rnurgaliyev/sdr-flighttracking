@@ -6,6 +6,8 @@ services:
       - "8080:8080"
     privileged: True
     restart: unless-stopped
+    tmpfs:
+      - /run:size=16M
   flightaware:
     image: imple/flightaware
     env_file: flightaware.env
