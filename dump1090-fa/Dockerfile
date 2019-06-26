@@ -24,7 +24,7 @@ EXPOSE 30104
 
 # Copy startup script
 COPY assets/dump1090-fa.sh /usr/bin/dump1090-fa.sh
-RUN chmod 775 /usr/bin/dump1090-fa.sh
+RUN chmod 755 /usr/bin/dump1090-fa.sh
 
 # Container start point
 CMD ["/usr/bin/dump1090-fa.sh"]
