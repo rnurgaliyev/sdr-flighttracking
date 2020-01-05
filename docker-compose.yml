@@ -20,6 +20,8 @@ services:
       driver: none
   flightradar24:
     image: imple/flightradar24
+    ports:
+      - "8754:8754"
     env_file: flightradar24.env
     links:
       - dump1090-fa:dump1090
