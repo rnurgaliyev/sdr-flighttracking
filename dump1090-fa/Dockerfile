@@ -1,12 +1,13 @@
-FROM arm32v7/ubuntu:bionic
+FROM arm32v7/debian:buster
 
 # Add FlightAware repository and update apt cache
-ADD http://flightaware.com/adsb/piaware/files/packages/pool/piaware/p/piaware-support/piaware-repository_3.8.0~bpo9+1_all.deb /tmp/piaware-repository.deb
+ADD https://flightaware.com/adsb/piaware/files/packages/pool/piaware/p/piaware-support/piaware-repository_4.0_all.deb /tmp/piaware-repository.deb
 RUN dpkg -i /tmp/piaware-repository.deb
 RUN apt-get update
 
 # Install prerequisites
-RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends curl apt-utils wget lighttpd libterm-ui-perl
+RUN DEBIAN_FRONTEND=noninteractive apt-get install -y --no-install-recommends \
+  curl apt-utils wget lighttpd libterm-ui-perl ca-certificates
 
 # Install dump1090 from FlightAware and prerequisites
 RUN DEBIAN_FRONTEND=noninteractive apt-get install -y dump1090-fa
