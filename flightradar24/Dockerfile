@@ -1,4 +1,4 @@
-FROM arm32v7/ubuntu:focal
+FROM arm32v7/debian:buster
 
 # Update apt cache and install prerequisites
 RUN apt-get update
