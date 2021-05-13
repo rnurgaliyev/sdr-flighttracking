@@ -16,8 +16,6 @@ services:
     depends_on:
       - dump1090-fa
     restart: unless-stopped
-    logging:
-      driver: none
   flightradar24:
     image: imple/flightradar24
     ports:
@@ -28,5 +26,3 @@ services:
     depends_on:
       - dump1090-fa
     restart: unless-stopped
-    logging:
-      driver: none
