@@ -1,28 +1,32 @@
-version: "3"
 services:
-  dump1090-fa:
-    image: imple/dump1090-fa
-    ports:
-      - "8080:8080"
-    privileged: True
-    restart: unless-stopped
-    tmpfs:
-      - /run:size=16M
-  flightaware:
-    image: imple/flightaware
-    env_file: flightaware.env
-    links:
-      - dump1090-fa:dump1090
-    depends_on:
-      - dump1090-fa
-    restart: unless-stopped
-  flightradar24:
-    image: imple/flightradar24
-    ports:
-      - "8754:8754"
-    env_file: flightradar24.env
-    links:
-      - dump1090-fa:dump1090
-    depends_on:
-      - dump1090-fa
-    restart: unless-stopped
+    dump1090-fa:
+        build:
+            context: dump1090-fa
+        ports:
+            - "8080:8080"
+        privileged: True
+        restart: unless-stopped
+        tmpfs:
+            - /run:size=16M
+
+    flightaware:
+        build:
+            context: flightaware
+        env_file: flightaware.env
+        links:
+            - dump1090-fa:dump1090
+        depends_on:
+            - dump1090-fa
+        restart: unless-stopped
+
+    flightradar24:
+        build:
+            context: flightradar24
+        ports:
+            - "8754:8754"
+        env_file: flightradar24.env
+        links:
+            - dump1090-fa:dump1090
+        depends_on:
+            - dump1090-fa
+        restart: unless-stopped
