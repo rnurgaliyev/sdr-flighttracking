@@ -4,7 +4,7 @@ FROM debian:bookworm
 RUN apt update \
     && DEBIAN_FRONTEND=noninteractive apt -y upgrade
 
-RUN DEBIAN_FRONTEND=noninteractive apt install -y ca-certificates gpg iputils-ping
+RUN DEBIAN_FRONTEND=noninteractive apt install -y ca-certificates gpg iputils-ping procps
 
 # Add Flightradar24 keys
 RUN gpg --keyserver "keyserver.ubuntu.com" -vv --recv-keys "40C430F5" && \
